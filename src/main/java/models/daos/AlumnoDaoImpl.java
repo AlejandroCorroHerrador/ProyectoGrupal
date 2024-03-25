@@ -1,7 +1,6 @@
 package models.daos;
 
 import models.entities.Alumno;
-import models.entities.Profesor;
 import models.repositories.AlumnoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,8 +29,9 @@ public class AlumnoDaoImpl implements AlumnoDao {
         return alumnoRepository.save(alumno);
     }
 
+
     @Override
-    public Alumno updateAlumno(Alumno alumno) {
+    public Alumno updateAlumno(Alumno alumno, Long id_alumno) {
         Alumno currentAlumno = alumnoRepository.findById(alumno.getIdAlumno()).get();
         currentAlumno.setNombre_alumno(alumno.getNombre_alumno());
         currentAlumno.setApellido_alumno(alumno.getApellido_alumno());

@@ -13,7 +13,7 @@ public interface AlumnoDao {
 
     Alumno createAlumno(Alumno alumno);
 
-    Alumno updateAlumno(Alumno alumno);
+    Alumno updateAlumno(Alumno alumno, Long id_alumno);
 
     void deleteAlumno(Long id_alumno);
 
