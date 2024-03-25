@@ -12,7 +12,7 @@ public interface ProfesorDao {
 
     Profesor createProfesor(Profesor profesor);
 
-    Profesor updateProfesor(Profesor profesor);
+    Profesor updateProfesor(Profesor profesor, Long id_profesor);
 
     void deleteProfesor(Long id_profesor);
 }

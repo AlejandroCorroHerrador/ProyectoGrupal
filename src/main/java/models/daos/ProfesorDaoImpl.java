@@ -30,7 +30,7 @@ public class ProfesorDaoImpl implements ProfesorDao {
     }
 
     @Override
-    public Profesor updateProfesor(Profesor profesor) {
+    public Profesor updateProfesor(Profesor profesor, Long id_profesor) {
         Profesor currentProfesor = profesorRepository.findById(profesor.getIdProfesor()).get();
         currentProfesor.setNombre_profesor(profesor.getNombre_profesor());
         currentProfesor.setApellido_profesor(profesor.getApellido_profesor());

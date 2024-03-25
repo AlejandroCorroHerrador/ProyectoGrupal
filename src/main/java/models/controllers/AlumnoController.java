@@ -26,7 +26,7 @@ public class AlumnoController {
         return alumnoDao.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id_alumno}")
     public ResponseEntity<Alumno> findById(@PathVariable Long id_alumno) {
         Optional<Alumno> alumno = alumnoDao.findById(id_alumno);
 
