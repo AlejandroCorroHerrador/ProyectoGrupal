@@ -41,6 +41,7 @@ public class Profesor implements Serializable {
     @Column(name = "fase")
     private int fase;
 
+  //Constructor
     public Profesor(Long idProfesor, Alumno alumno, String nombre_profesor, String apellido_profesor, String email,
                     String nombre_instituto, String direccion, String poblacion, String cod_postal, int fase) {
         this.idProfesor = idProfesor;
