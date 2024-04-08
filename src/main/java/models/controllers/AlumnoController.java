@@ -4,6 +4,7 @@ import models.daos.AlumnoDao;
 import models.entities.Alumno;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -39,18 +40,40 @@ public class AlumnoController {
     }
 
 
-    @PostMapping
-    public Alumno createAlumno(@RequestBody Alumno alumno) {
-        return alumnoDao.createAlumno(alumno);
+    @PostMapping("/alumno/create")
+    public String createAlumno(@RequestBody Model model) {
+        model.addAttribute("student", new Alumno());
+        return "create_student";
     }
 
-    @PutMapping("/{id_alumno}")
-    public Alumno updateAlumno(@PathVariable Long id_alumno, @RequestBody Alumno alumno){
-        return alumnoDao.updateAlumno(alumno, id_alumno);
+    @PostMapping("/alumno/save")
+    public String newMenu(Model model, @ModelAttribute("alumno") Alumno alumno) {
+        alumnoDao.createAlumno(alumno);
+        return "redirect:/alumno";
     }
 
-    @DeleteMapping("/{id_alumno}")
-    public void deleteAlumno(@PathVariable Long id_alumno) {
+    @PutMapping("alumno/update/{id_alumno}")
+    public String updateAlumno(@PathVariable Long id_alumno, @RequestBody Alumno alumno){
+        alumnoDao.updateAlumno(alumno, id_alumno);
+        return "update_student";
+    }
+
+    @GetMapping("/alumno/update/{id_alumno}")
+    public String updateFormAlumno(@PathVariable long id_alumno, Model model) {
+        Optional<Alumno> alumno = alumnoDao.findById(id_alumno);
+        if (alumno.isPresent()) {
+            model.addAttribute("alumno", alumno.get());
+            return "update_student"; // Nombre de la página de actualización
+        } else {
+            return "redirect:/alumno";
+        }
+    }
+
+    @DeleteMapping("alumno/delete/{id_alumno}")
+    public String deleteAlumno(@PathVariable Long id_alumno) {
         alumnoDao.deleteAlumno(id_alumno);
+        return "redirect:/alumno";
     }
+
+
 }

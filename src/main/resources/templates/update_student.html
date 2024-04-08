@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Actualizar Estudiante</title>
+</head>
+<body>
+<form id="actualizarEstudianteForm" action="#" method="post" th:action="@{/students/update}" th:object="${student}">
+    <label for="username">Username: </label><br>
+    <input th:field="*{username}" type="text" id="username" name="username" required><br>
+
+    <label for="password">Password:</label><br>
+    <input th:field="*{password}" type="password" id="password" name="password" required><br>
+
+    <label for="edad">Edad:</label><br>
+    <input th:field="*{edad}" type="number" id="edad" name="edad" required><br>
+
+    <label for="nombre">Nombre: </label><br>
+    <input th:field="*{nombre}" type="text" id="nombre" name="nombre" required><br>
+
+    <label for="surname">Surname: </label><br>
+    <input th:field="*{surname}" type="text" id="surname" name="surname" required><br>
+
+    <label for="telephone">Telephone:</label><br>
+    <input th:field="*{telephone}" type="tel" id="telephone" name="telephone" required><br>
+
+    <label for="nif">NIF: </label><br>
+    <input th:field="*{nif}" type="text" id="nif" name="nif" readonly><br>
+
+    <label for="date_registered">Fecha de Inicio:</label><br>
+    <input th:field="*{date_registered}" type="date" id="date_registered" name="date_registered" readonly><br>
+
+    <input type="submit" value="Actualizar Estudiante">
+</form>
+
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Actualizar Estudiante</title>
+    <!-- Agrega el enlace al archivo CSS de Bootstrap si es necesario -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h2 class="mt-4 mb-4">Actualizar Estudiante</h2>
+
+    <form th:object="${student}" th:action="@{/students/update}" method="post">
+        <input type="hidden" th:field="*{id_student}" />
+
+        <div class="form-group">
+            <label for="username">Nombre de Usuario:</label>
+            <input type="text" th:field="*{username}" class="form-control" id="username" required />
+        </div>
+
+        <div class="form-group">
+            <label for="password">Contraseña:</label>
+            <input type="password" th:field="*{password}" class="form-control" id="password" required />
+        </div>
+
+        <div class="form-group">
+            <label for="edad">Edad:</label>
+            <input type="number" th:field="*{edad}" class="form-control" id="edad" required />
+        </div>
+
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" th:field="*{nombre}" class="form-control" id="nombre" required />
+        </div>
+
+        <div class="form-group">
+            <label for="surname">Apellido:</label>
+            <input type="text" th:field="*{surname}" class="form-control" id="surname" required />
+        </div>
+
+        <div class="form-group">
+            <label for="telephone">Teléfono:</label>
+            <input type="tel" th:field="*{telephone}" class="form-control" id="telephone" required />
+        </div>
+
+        <div class="form-group">
+            <label for="nif">NIF:</label>
+            <input type="text" th:field="*{nif}" class="form-control" id="nif" required />
+        </div>
+
+
+        <div class="form-group">
+            <label for="date_registered">Fecha de Registro:</label>
+            <input class="form-control" type="date" id="date_registered" name="date_registered" th:value="${student.date_registered}" required>
+        </div>
+
+        <!-- Agrega más campos según sea necesario -->
+
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+    </form>
+
+    <div class="row themed-container">
+        <div class="col-12">
+            <a class="btn btn-secondary" th:href="@{/students}">Volver</a>
+        </div>
+    </div>
+</div>
+
+<!-- Agrega el enlace al archivo JS de Bootstrap si es necesario -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

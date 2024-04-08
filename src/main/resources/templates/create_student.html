@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear curso</title>
+</head>
+<body>
+
+<style>
+    #crearCursoForm {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        color: #555; /* Color del texto de la etiqueta */
+    }
+
+    input {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    input[type="submit"] {
+        background-color: #bdecb6; /* Color de fondo del botón de enviar */
+        color: black; /* Color del texto del botón de enviar */
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0056b3; /* Cambia de color al pasar el ratón sobre el botón de enviar */
+    }
+</style>
+
+<form id="crearCursoForm" action="#" method="post" th:action="@{/alumno/save}" th:object="${alumno}">
+    <label for="nombre_alumno">Nombre del alumno: </label><br>
+    <input th:field="*{nombre_alumno}" type="text" id="nombre_alumno" name="nombre_alumno" required><br>
+
+    <label for="password">Password:</label><br>
+    <input th:field="*{password}" type="password" id="password" name="password" required><br>
+
+    <label for="edad">Edad:</label><br>
+    <input th:field="*{edad}" type="number" id="edad" name="edad" required><br>
+
+    <label for="nombre">Nombre: </label><br>
+    <input th:field="*{nombre}" type="text" id="nombre" name="nombre" required><br>
+
+    <label for="surname">Surname: </label><br>
+    <input th:field="*{surname}" type="text" id="surname" name="surname" required><br>
+
+    <label for="telephone">Telephone:</label><br>
+    <input th:field="*{telephone}" type="tel" id="telephone" name="telephone" required><br>
+
+    <label for="nif">NIF: </label><br>
+    <input th:field="*{nif}" type="text" id="nif" name="nif" required><br>
+
+    <label for="date_registered">Fecha de Inicio:</label><br>
+    <input th:field="*{date_registered}" type="date" id="date_registered" name="date_registered" required><br>
+
+    <input type="submit" value="Crear Student">
+</form>
+
+</body>
+</html>
