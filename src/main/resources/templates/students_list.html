@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Estudiantes</title>
+    <!-- Agrega el enlace al archivo CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        body {
+            padding: 20px;
+            background-color: white;
+        }
+
+        .themed-grid-col {
+            padding-top: .75rem;
+            padding-bottom: .75rem;
+            background-color: #bdecb6;
+            border: 1px solid #000; /* Borde negro */
+        }
+
+        .themed-container {
+            padding: .75rem;
+            margin-bottom: 1.5rem;
+            background-color: #bdecb6;
+            border: 1px solid #000; /* Borde negro */
+        }
+
+        .table th, .table td {
+            border: 1px solid #dee2e6;
+            background-color: #bdecb6; /* Color de fondo de las celdas */
+        }
+
+        .table th {
+            background-color: #87c469; /* Color de fondo de las celdas de encabezado */
+        }
+        .btn-update {
+            background-color: #007bff;
+            color: #fff;
+            border: 1px solid #007bff;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .btn-update:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        /* Estilo para el botón Nuevo Estudiante */
+        .btn-nuevo-esudiante {
+            background-color: #28a745;
+            color: #fff;
+            border: 1px solid #28a745;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .btn-nuevo-esudiante:hover {
+            background-color: #218838;
+            border-color: #218838;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2 class="mt-4 mb-4">Lista de Estudiantes</h2>
+    <div class="row">
+        <div class="col-12 themed-grid-col">
+            <table class="table themed-container">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Teléfono</th>
+                    <th>NIF</th>
+                    <th>Fecha registro</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="estudiante: ${students}">
+                    <td th:text="${estudiante.id_student}"></td>
+                    <td th:text="${estudiante.nombre}"></td>
+                    <td th:text="${estudiante.surname}"></td>
+                    <td th:text="${estudiante.telephone}"></td>
+                    <td th:text="${estudiante.nif}"></td>
+                    <td th:text="${estudiante.date_registered}"></td>
+                    <td th:if="${#authorization.expression('hasRole(''USER_ADMIN'')')}">
+                        <form th:action="@{/students/delete}" method="post">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                            <input type="hidden" name="id" th:value="${estudiante.id_student}" />
+                            <button type="submit" class="btn btn-danger">Borrar</button>
+                        </form>
+                    </td>
+                    <td th:if="${#authorization.expression('hasRole(''USER_ADMIN'')')}">
+                        <a th:href="@{'/students/update/' + ${estudiante.id_student}}" class="btn btn-primary btn-update">Actualizar</a>
+                    </td>
+
+                </tr>
+                <tr th:if="${#authorization.expression('hasRole(''USER_ADMIN'')')}" >
+                    <td>
+                        <a class="btn-nuevo-esudiante" href="/students/create">Nuevo Student</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row themed-container">
+        <div class="col-12">
+            <a class="btn btn-secondary" th:href="@{/}">Volver</a>
+        </div>
+    </div>
+</div>
+
+<!-- Agrega el enlace al archivo JS de Bootstrap si es necesario -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -27,14 +27,14 @@ public class ProfesorController {
     }
 
     @GetMapping("/{id_profesor}")
-    public ResponseEntity<Profesor> findById(@PathVariable Long id_profesor) {
+    public String findById(@PathVariable Long id_profesor) {
         Optional<Profesor> profesor = profesorDao.findById(id_profesor);
 
         if (profesor.isPresent()) {
-            return new ResponseEntity<>(profesor.get(), HttpStatus.OK);
+            return "teachers_list";
         } else {
             // Enviar una respuesta HTTP 404 si la tarea no se encuentra
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return String.valueOf(new ResponseEntity<>(HttpStatus.NOT_FOUND));
         }
     }
 

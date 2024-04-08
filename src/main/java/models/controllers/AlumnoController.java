@@ -2,7 +2,6 @@ package models.controllers;
 
 import models.daos.AlumnoDao;
 import models.entities.Alumno;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +13,7 @@ import java.util.Optional;
 @RequestMapping("/alumno")
 public class AlumnoController {
 
-    @Autowired
+
     private final AlumnoDao alumnoDao;
 
 
@@ -28,14 +27,14 @@ public class AlumnoController {
     }
 
     @GetMapping("/{id_alumno}")
-    public ResponseEntity<Alumno> findById(@PathVariable Long id_alumno) {
+    public String findById(@PathVariable Long id_alumno) {
         Optional<Alumno> alumno = alumnoDao.findById(id_alumno);
 
         if (alumno.isPresent()) {
-            return new ResponseEntity<>(alumno.get(), HttpStatus.OK);
+            return "students_list";
         } else {
             // Enviar una respuesta HTTP 404 si la tarea no se encuentra
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return String.valueOf(new ResponseEntity<>(HttpStatus.NOT_FOUND));
         }
     }
 
