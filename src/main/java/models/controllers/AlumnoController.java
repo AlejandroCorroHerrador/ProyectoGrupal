@@ -14,9 +14,10 @@ import java.util.Optional;
 @RequestMapping("/alumno")
 public class AlumnoController {
 
+    @Autowired
     private final AlumnoDao alumnoDao;
 
-    @Autowired
+
     public AlumnoController(AlumnoDao alumnoDao) {
         this.alumnoDao = alumnoDao;
     }
