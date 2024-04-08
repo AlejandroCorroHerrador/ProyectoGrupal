@@ -10,6 +10,7 @@ import java.io.Serializable;
 })
 public class Profesor implements Serializable {
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "id_profesor")
     private Long idProfesor;
 

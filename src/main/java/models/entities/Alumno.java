@@ -10,11 +10,12 @@ import java.io.Serializable;
 })
 public class Alumno implements Serializable {
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "id_alumno")
     private Long idAlumno;
 
     @ManyToOne
-    @JoinColumn(name = "id_profesor", referencedColumnName = "id_profesor")
+    @JoinColumn(name = "id_alumno", referencedColumnName = "id_profesor")
     private Profesor profesor;
 
     @Column(name = "nombre_alumno")
