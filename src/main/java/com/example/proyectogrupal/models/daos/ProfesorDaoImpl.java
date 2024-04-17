@@ -1,7 +1,7 @@
-package models.daos;
+package com.example.proyectogrupal.models.daos;
 
-import models.entities.Profesor;
-import models.repositories.ProfesorRepository;
+import com.example.proyectogrupal.models.entities.Profesor;
+import com.example.proyectogrupal.models.repositories.ProfesorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -94,16 +94,19 @@
                             <button type="submit" class="btn btn-danger">Borrar</button>
                         </form>
                     </td>
-                    <td th:if="${#authorization.expression('hasRole(''USER_ADMIN'')')}">
+                    <td>
+                    <!--<td th:if="${#authorization.expression('hasRole(''USER_ADMIN'')')}">-->
                         <a th:href="@{'/students/update/' + ${estudiante.id_student}}" class="btn btn-primary btn-update">Actualizar</a>
                     </td>
 
                 </tr>
-                <tr th:if="${#authorization.expression('hasRole(''USER_ADMIN'')')}" >
-                    <td>
-                        <a class="btn-nuevo-esudiante" href="/students/create">Nuevo Student</a>
-                    </td>
-                </tr>
+                <tr>
+                <!--  <tr th:if="${#authorization.expression('hasRole(''USER_ADMIN'')')}" > -->
+                      <td>
+                          <a class="btn-nuevo-esudiante" href="/alumno/create">Nuevo Alumno</a>
+                      </td>
+                    </tr>
+                  <!--</tr>-->
                 </tbody>
             </table>
         </div>

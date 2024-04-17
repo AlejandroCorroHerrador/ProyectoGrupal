@@ -1,13 +1,11 @@
-package models.entities;
+package com.example.proyectogrupal.models.entities;
 
 import jakarta.persistence.*;
 
 import java.io.Serializable;
 
 @Entity
-@Table(name = "alumno", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"id_profesor", "id_alumno"})
-})
+@Table(name = "profesor")
 public class Profesor implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -15,7 +13,7 @@ public class Profesor implements Serializable {
     private Long idProfesor;
 
     @OneToOne
-    @JoinColumn(name = "id_alumno", referencedColumnName = "id_alumno")
+    @JoinColumn(name = "id_alumno")
     private Alumno alumno;
 
     @Column(name = "nombre_profesor")

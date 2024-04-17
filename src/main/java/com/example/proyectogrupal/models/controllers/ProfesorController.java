@@ -1,7 +1,7 @@
-package models.controllers;
+package com.example.proyectogrupal.models.controllers;
 
-import models.daos.ProfesorDao;
-import models.entities.Profesor;
+import com.example.proyectogrupal.models.daos.ProfesorDao;
+import com.example.proyectogrupal.models.entities.Profesor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

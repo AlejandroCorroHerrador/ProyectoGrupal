@@ -1,6 +1,6 @@
-package models.daos;
+package com.example.proyectogrupal.models.daos;
 
-import models.entities.Profesor;
+import com.example.proyectogrupal.models.entities.Profesor;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,22 +1,23 @@
-package models.entities;
+package com.example.proyectogrupal.models.entities;
 
 import jakarta.persistence.*;
 
 import java.io.Serializable;
 
 @Entity
-@Table(name = "alumno", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"id_alumno", "id_profesor"})
-})
+@Table(name = "alumno")
 public class Alumno implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "id_alumno")
     private Long idAlumno;
 
+
     @ManyToOne
-    @JoinColumn(name = "id_alumno", referencedColumnName = "id_profesor")
+    @JoinColumn(name = "id_profesor", nullable = false)
     private Profesor profesor;
+
+
 
     @Column(name = "nombre_alumno")
     private String nombre_alumno;

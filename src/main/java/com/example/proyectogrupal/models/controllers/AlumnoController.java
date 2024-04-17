@@ -1,20 +1,23 @@
-package models.controllers;
+package com.example.proyectogrupal.models.controllers;
 
-import models.daos.AlumnoDao;
-import models.entities.Alumno;
+import com.example.proyectogrupal.models.daos.AlumnoDao;
+import com.example.proyectogrupal.models.entities.Alumno;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-@RestController
+@Controller
 @RequestMapping("/alumno")
 public class AlumnoController {
 
 
+    @Autowired
     private final AlumnoDao alumnoDao;
 
 
@@ -40,25 +43,26 @@ public class AlumnoController {
     }
 
 
-    @PostMapping("/alumno/create")
+    @GetMapping("/create")
     public String createAlumno(@RequestBody Model model) {
-        model.addAttribute("student", new Alumno());
+        System.out.println("HOLA");
+        model.addAttribute("alumno", new Alumno());
         return "create_student";
     }
 
-    @PostMapping("/alumno/save")
+    @PostMapping("/save")
     public String newMenu(Model model, @ModelAttribute("alumno") Alumno alumno) {
         alumnoDao.createAlumno(alumno);
         return "redirect:/alumno";
     }
 
-    @PutMapping("alumno/update/{id_alumno}")
+    @PutMapping("/update/{id_alumno}")
     public String updateAlumno(@PathVariable Long id_alumno, @RequestBody Alumno alumno){
         alumnoDao.updateAlumno(alumno, id_alumno);
         return "update_student";
     }
 
-    @GetMapping("/alumno/update/{id_alumno}")
+    @GetMapping("/update/{id_alumno}")
     public String updateFormAlumno(@PathVariable long id_alumno, Model model) {
         Optional<Alumno> alumno = alumnoDao.findById(id_alumno);
         if (alumno.isPresent()) {
@@ -69,11 +73,9 @@ public class AlumnoController {
         }
     }
 
-    @DeleteMapping("alumno/delete/{id_alumno}")
+    @DeleteMapping("/delete/{id_alumno}")
     public String deleteAlumno(@PathVariable Long id_alumno) {
         alumnoDao.deleteAlumno(id_alumno);
         return "redirect:/alumno";
     }
-
-
 }
