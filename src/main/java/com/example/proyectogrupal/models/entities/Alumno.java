@@ -13,12 +13,6 @@ public class Alumno implements Serializable {
     private Long idAlumno;
 
 
-    @ManyToOne
-    @JoinColumn(name = "id_profesor", nullable = false)
-    private Profesor profesor;
-
-
-
     @Column(name = "nombre_alumno")
     private String nombre_alumno;
 
@@ -46,10 +40,9 @@ public class Alumno implements Serializable {
     @Column(name = "comodin")
     private int comodin;
 
-    public Alumno(Long idAlumno, Profesor profesor, String nombre_alumno, String apellido_alumno, String email, String curso,
+    public Alumno(Long idAlumno, String nombre_alumno, String apellido_alumno, String email, String curso,
                   String grupo, String username, String password, String servidor, int comodin) {
         this.idAlumno = idAlumno;
-        this.profesor = profesor;
         this.nombre_alumno = nombre_alumno;
         this.apellido_alumno = apellido_alumno;
         this.email = email;
@@ -73,13 +66,6 @@ public class Alumno implements Serializable {
         this.idAlumno = idAlumno;
     }
 
-    public Profesor getProfesor() {
-        return profesor;
-    }
-
-    public void setProfesor(Profesor profesor) {
-        this.profesor = profesor;
-    }
 
     public String getNombre_alumno() {
         return nombre_alumno;

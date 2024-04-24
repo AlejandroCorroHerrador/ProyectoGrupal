@@ -35,7 +35,6 @@ public class ProfesorDaoImpl implements ProfesorDao {
         currentProfesor.setNombre_profesor(profesor.getNombre_profesor());
         currentProfesor.setApellido_profesor(profesor.getApellido_profesor());
         currentProfesor.setEmail(profesor.getEmail());
-        currentProfesor.setAlumno(profesor.getAlumno());
         currentProfesor.setNombre_instituto(profesor.getNombre_instituto());
         currentProfesor.setDireccion(profesor.getDireccion());
         currentProfesor.setPoblacion(profesor.getPoblacion());

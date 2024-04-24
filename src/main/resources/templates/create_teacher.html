@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Estudiante</title>
+</head>
+<body>
+
+<style>
+    #crearCursoForm {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        color: #555; /* Color del texto de la etiqueta */
+    }
+
+    input {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    select {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    input[type="submit"] {
+        background-color: #bdecb6; /* Color de fondo del botón de enviar */
+        color: black; /* Color del texto del botón de enviar */
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0056b3; /* Cambia de color al pasar el ratón sobre el botón de enviar */
+    }
+</style>
+
+<form id="crearCursoForm" action="#" method="post" th:action="@{/profesor/save}" th:object="${profesor}">
+    <center>CREAR FICHA DE PROFESOR</center>
+
+    <br>
+    <br>
+
+    <label for="nombre_profesor">Nombre del alumno: </label><br>
+    <input th:field="*{nombre_profesor}" type="text" id="nombre_profesor" name="nombre_profesor" required><br>
+
+    <br>
+
+    <label for="apellido_profesor">Apellidos del alumno: </label><br>
+    <input th:field="*{apellido_profesor}" type="text" id="apellido_profesor" name="apellido_profesor" required><br>
+
+    <br>
+
+    <label for="email">Correo electrónico:</label><br>
+    <input th:field="*{email}" type="text" id="email" name="email" required><br>
+
+    <br>
+
+    <label for="nombre_instituto">Nombre de instituto: </label><br>
+    <input th:field="*{nombre_instituto}" type="text" id="nombre_instituto" name="nombre_instituto" required><br>
+
+    <br>
+
+    <label for="direccion">Dirección:</label><br>
+    <input th:field="*{direccion}" type="direccion" id="direccion" name="direccion" required><br>
+
+    <br>
+
+    <label for="cod_postal">Código postal:</label><br>
+    <input th:field="*{cod_postal}" type="text" id="cod_postal" name="cod_postal" required><br>
+
+    <br>
+
+    <label for="poblacion">Población:</label><br>
+    <input th:field="*{poblacion}" type="text" id="poblacion" name="poblacion" required><br>
+
+    <br>
+
+    <input type="submit" value="Crear Profesor">
+</form>
+
+</body>
+</html>

@@ -26,10 +26,10 @@ public class AlumnoController {
     }
 
     @GetMapping
-    public List<Alumno> findAlumnos() {
-        return alumnoDao.findAll();
+    public String findAlumnos(Model model) {
+        model.addAttribute("students", alumnoDao.findAll());
+        return "students_list";
     }
-
     @GetMapping("/{id_alumno}")
     public String findById(@PathVariable Long id_alumno) {
         Optional<Alumno> alumno = alumnoDao.findById(id_alumno);
@@ -44,7 +44,7 @@ public class AlumnoController {
 
 
     @GetMapping("/create")
-    public String createAlumno(@RequestBody Model model) {
+    public String createAlumno(Model model) {
         System.out.println("HOLA");
         model.addAttribute("alumno", new Alumno());
         return "create_student";

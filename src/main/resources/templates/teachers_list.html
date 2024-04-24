@@ -42,22 +42,29 @@
             <table class="table themed-container">
                 <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
-                    <th>Teléfono</th>
-                    <th>NIF</th>
                     <th>Email</th>
+                    <th>Nombre Instituto</th>
+                    <th>Dirección</th>
+                    <th>Población</th>
+                    <th>Código postal</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="profesor: ${teachers}">
-                    <td th:text="${profesor.id_teacher}"></td>
-                    <td th:text="${profesor.nombre}"></td>
-                    <td th:text="${profesor.surname}"></td>
-                    <td th:text="${profesor.telephone}"></td>
-                    <td th:text="${profesor.nif}"></td>
+                    <td th:text="${profesor.nombre_profesor}"></td>
+                    <td th:text="${profesor.apellido_profesor}"></td>
                     <td th:text="${profesor.email}"></td>
+                    <td th:text="${profesor.nombre_instituto}"></td>
+                    <td th:text="${profesor.direccion}"></td>
+                    <td th:text="${profesor.poblacion}"></td>
+                    <td th:text="${profesor.cod_postal}"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="btn-nuevo-profesor" href="/profesor/create">Nuevo Profesor</a>
+                    </td>
                 </tr>
                 </tbody>
             </table>

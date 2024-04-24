@@ -38,7 +38,6 @@ public class AlumnoDaoImpl implements AlumnoDao {
         currentAlumno.setEmail(alumno.getEmail());
         currentAlumno.setCurso(alumno.getCurso());
         currentAlumno.setGrupo(alumno.getGrupo());
-        currentAlumno.setProfesor(alumno.getProfesor());
         currentAlumno.setUsername(alumno.getUsername());
         currentAlumno.setPassword(alumno.getPassword());
         currentAlumno.setComodin(alumno.getComodin());

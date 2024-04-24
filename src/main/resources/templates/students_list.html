@@ -71,33 +71,41 @@
             <table class="table themed-container">
                 <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
-                    <th>Teléfono</th>
-                    <th>NIF</th>
-                    <th>Fecha registro</th>
+                    <th>Email</th>
+                    <th>Curso</th>
+                    <th>Grupo</th>
+                    <th>Nombre de usuario</th>
+                    <th>Contraeña</th>
+                    <th>Servidor</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="estudiante: ${students}">
-                    <td th:text="${estudiante.id_student}"></td>
-                    <td th:text="${estudiante.nombre}"></td>
-                    <td th:text="${estudiante.surname}"></td>
-                    <td th:text="${estudiante.telephone}"></td>
-                    <td th:text="${estudiante.nif}"></td>
-                    <td th:text="${estudiante.date_registered}"></td>
+                    <td th:text="${estudiante.nombre_alumno}"></td>
+                    <td th:text="${estudiante.apellido_alumno}"></td>
+                    <td th:text="${estudiante.email}"></td>
+                    <td th:text="${estudiante.curso}"></td>
+                    <td th:text="${estudiante.grupo}"></td>
+                    <td th:text="${estudiante.username}"></td>
+                    <td th:text="${estudiante.password}"></td>
+                    <td th:text="${estudiante.servidor}"></td>
+                    <!--
                     <td th:if="${#authorization.expression('hasRole(''USER_ADMIN'')')}">
                         <form th:action="@{/students/delete}" method="post">
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-                            <input type="hidden" name="id" th:value="${estudiante.id_student}" />
+                            <input type="hidden" name="id" th:value="${estudiante.id_alumno}" />
                             <button type="submit" class="btn btn-danger">Borrar</button>
                         </form>
                     </td>
-                    <td>
-                    <!--<td th:if="${#authorization.expression('hasRole(''USER_ADMIN'')')}">-->
-                        <a th:href="@{'/students/update/' + ${estudiante.id_student}}" class="btn btn-primary btn-update">Actualizar</a>
+                    -->
+
+                    <!--<td>
+                   <td th:if="${#authorization.expression('hasRole(''USER_ADMIN'')')}">
+                        <a th:href="@{'/students/update/' + ${estudiante.id_alumno}}" class="btn btn-primary btn-update">Actualizar</a>
                     </td>
+                    -->
 
                 </tr>
                 <tr>
