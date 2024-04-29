@@ -48,7 +48,7 @@
         }
 
         /* Estilo para el botón Nuevo Estudiante */
-        .btn-nuevo-esudiante {
+        .btn-nuevo-estudiante {
             background-color: #28a745;
             color: #fff;
             border: 1px solid #28a745;
@@ -57,10 +57,26 @@
             border-radius: 4px;
         }
 
-        .btn-nuevo-esudiante:hover {
-            background-color: #218838;
-            border-color: #218838;
+        /* Estilo para el botón Actualizar Estudiante */
+        .btn-actualizar-estudiante {
+            background-color: coral;
+            color: #fff;
+            border: 1px solid #28a745;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 4px;
         }
+
+        /* Estilo para el botón ELiminar Estudiante */
+        .btn-eliminar-estudiante {
+            background-color: red;
+            color: #fff;
+            border: 1px solid #28a745;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
     </style>
 </head>
 <body>
@@ -71,6 +87,7 @@
             <table class="table themed-container">
                 <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Email</th>
@@ -83,6 +100,7 @@
                 </thead>
                 <tbody>
                 <tr th:each="estudiante: ${students}">
+                    <td th:text="${estudiante.id_alumno}"></td>
                     <td th:text="${estudiante.nombre_alumno}"></td>
                     <td th:text="${estudiante.apellido_alumno}"></td>
                     <td th:text="${estudiante.email}"></td>
@@ -106,12 +124,21 @@
                         <a th:href="@{'/students/update/' + ${estudiante.id_alumno}}" class="btn btn-primary btn-update">Actualizar</a>
                     </td>
                     -->
+                    <!--  <tr th:if="${#authorization.expression('hasRole(''USER_ADMIN'')')}" > -->
+                    <td>
+                        <a th:href="@{'/alumno/update/' + ${estudiante.id_alumno}}" class="btn btn-primary btn-update">Actualizar</a>
+
+                    </td>
+                    <td>
+                        <a class="btn-eliminar-estudiante" href="/alumno/delete/{id_alumno}">Eliminar</a>
+                    </td>
+                </tr>
 
                 </tr>
                 <tr>
                 <!--  <tr th:if="${#authorization.expression('hasRole(''USER_ADMIN'')')}" > -->
                       <td>
-                          <a class="btn-nuevo-esudiante" href="/alumno/create">Nuevo Alumno</a>
+                          <a class="btn-nuevo-estudiante" href="/alumno/create">Nuevo Alumno</a>
                       </td>
                     </tr>
                   <!--</tr>-->
