@@ -56,10 +56,16 @@
     }
 </style>
 
-<form id="crearCursoForm" action="#" method="post" th:action="@{/alumno/save}" th:object="${alumno}">
+<form id="crearCursoForm" action="#" method="post" th:action="@{/alumno/update}" th:object="${alumno}">
     <center>ACTUALIZAR MATRÍCULA DE ALUMNO</center>
 
     <br>
+
+    <br>
+
+    <label for="id_alumno"></label><br>
+    <input th:field="*{idAlumno}" type="text" id="id_alumno" name="id_alumno" required readonly><br>
+
     <br>
 
     <label for="nombre_alumno">Nombre del alumno: </label><br>
@@ -111,7 +117,7 @@
 
     <br>
 
-    <label for="password">Servidor:</label><br>
+    <label for="servidor">Servidor:</label><br>
     <input th:field="*{servidor}" type="text" id="servidor" name="servidor" required><br>
 
     <br>

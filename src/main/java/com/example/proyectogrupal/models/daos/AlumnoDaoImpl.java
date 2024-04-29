@@ -32,6 +32,8 @@ public class AlumnoDaoImpl implements AlumnoDao {
 
     @Override
     public Alumno updateAlumno(Alumno alumno, Long id_alumno) {
+        //alumnoRepository.deleteById(id_alumno);
+        //alumnoRepository.save(alumno);
         Alumno currentAlumno = alumnoRepository.findById(alumno.getIdAlumno()).get();
         currentAlumno.setNombre_alumno(alumno.getNombre_alumno());
         currentAlumno.setApellido_alumno(alumno.getApellido_alumno());
@@ -42,6 +44,13 @@ public class AlumnoDaoImpl implements AlumnoDao {
         currentAlumno.setPassword(alumno.getPassword());
         currentAlumno.setComodin(alumno.getComodin());
         return alumnoRepository.save(currentAlumno);
+        //return alumno;
+    }
+
+    @Override
+    public Alumno save(Alumno alumno) {
+        alumnoRepository.save(alumno);
+        return alumno;
     }
 
     @Override

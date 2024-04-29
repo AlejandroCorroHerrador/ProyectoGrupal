@@ -14,6 +14,8 @@ public interface AlumnoDao {
 
     Alumno updateAlumno(Alumno alumno, Long id_alumno);
 
+    Alumno save(Alumno alumno);
+
     void deleteAlumno(Long id_alumno);
 
 

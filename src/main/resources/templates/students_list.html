@@ -58,7 +58,7 @@
         }
 
         /* Estilo para el botón Actualizar Estudiante */
-        .btn-actualizar-estudiante {
+        .btn btn-primary btn-update {
             background-color: coral;
             color: #fff;
             border: 1px solid #28a745;
@@ -100,7 +100,7 @@
                 </thead>
                 <tbody>
                 <tr th:each="estudiante: ${students}">
-                    <td th:text="${estudiante.id_alumno}"></td>
+                    <td th:text="${estudiante.idAlumno}"></td>
                     <td th:text="${estudiante.nombre_alumno}"></td>
                     <td th:text="${estudiante.apellido_alumno}"></td>
                     <td th:text="${estudiante.email}"></td>
@@ -126,11 +126,11 @@
                     -->
                     <!--  <tr th:if="${#authorization.expression('hasRole(''USER_ADMIN'')')}" > -->
                     <td>
-                        <a th:href="@{'/alumno/update/' + ${estudiante.id_alumno}}" class="btn btn-primary btn-update">Actualizar</a>
-
+                        <a th:href="@{'/alumno/update/' + ${estudiante.idAlumno}}" class="btn btn-primary btn-update">Actualizar</a>
                     </td>
                     <td>
-                        <a class="btn-eliminar-estudiante" href="/alumno/delete/{id_alumno}">Eliminar</a>
+                        <a th:href="@{'/alumno/delete/' + ${estudiante.idAlumno}}" class="btn btn-primary btn-delete">Eliminar</a>
+                    </td>
                     </td>
                 </tr>
 

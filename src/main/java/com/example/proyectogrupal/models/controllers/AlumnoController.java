@@ -45,7 +45,7 @@ public class AlumnoController {
 
     @GetMapping("/create")
     public String createAlumno(Model model) {
-        System.out.println("HOLA");
+        //System.out.println("HOLA");
         model.addAttribute("alumno", new Alumno());
         return "create_student";
     }
@@ -56,10 +56,10 @@ public class AlumnoController {
         return "redirect:/alumno";
     }
 
-    @PutMapping("/update/{id_alumno}")
-    public String updateAlumno(@PathVariable Long id_alumno, @RequestBody Alumno alumno){
-        alumnoDao.updateAlumno(alumno, id_alumno);
-        return "update_student";
+    @PostMapping("/update")
+    public String updateAlumno(@ModelAttribute("alumno") Alumno alumno){
+        alumnoDao.save(alumno);
+        return "redirect:/alumno";
     }
 
     @GetMapping("/update/{id_alumno}")
@@ -73,8 +73,14 @@ public class AlumnoController {
         }
     }
 
-    @DeleteMapping("/delete/{id_alumno}")
+    /*@DeleteMapping("/delete/")
     public String deleteAlumno(@PathVariable Long id_alumno) {
+        alumnoDao.deleteAlumno(id_alumno);
+        return "redirect:/alumno";
+    }*/
+
+    @PostMapping("/delete")
+    public String deleteAlumno(@RequestParam Long id_alumno, Model model) {
         alumnoDao.deleteAlumno(id_alumno);
         return "redirect:/alumno";
     }
