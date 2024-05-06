@@ -72,18 +72,17 @@ public class ProfesorController {
         }
     }
 
-
-    /*@DeleteMapping("/delete/")
-   public String deleteProfesor(@PathVariable Long id_profesor) {
+    @DeleteMapping("/delete")
+   public String deleteProfesor(@ModelAttribute Long id_profesor, Model model) {
        profesorDao.deleteProfesor(id_profesor);
        return "redirect:/profesor";
-   }*/
+   }
 
-    @DeleteMapping("/delete")
-    public String deleteProfesor(@ModelAttribute Long id_profesor, Model model) {
+    /* @DeleteMapping("/delete")
+    public String deleteProfesor(@RequestParam long id_profesor, Model model) {
         profesorDao.deleteProfesor(id_profesor);
         return "redirect:/profesor";
-    }
+    }*/
 
 
 }

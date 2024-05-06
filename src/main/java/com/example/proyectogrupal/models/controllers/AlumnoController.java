@@ -8,8 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -83,7 +81,7 @@ public class AlumnoController {
     }*/
 
     @PostMapping("/delete")
-    public String deleteAlumno(@RequestParam Long id_alumno, Model model) {
+    public String deleteAlumno(@ModelAttribute Long id_alumno, Model model) {
         alumnoDao.deleteAlumno(id_alumno);
         return "redirect:/alumno";
     }

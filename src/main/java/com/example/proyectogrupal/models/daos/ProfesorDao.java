@@ -17,5 +17,7 @@ public interface ProfesorDao {
 
     Profesor save(Profesor profesor);
 
+    //void deleteProfesor(long id_profesor);
+
     void deleteProfesor(Long id_profesor);
 }
