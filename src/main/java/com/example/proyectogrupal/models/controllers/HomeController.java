@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
     private final AlumnoDao alumnoDao;
 
+    //private final ProfesorDao profesorDao;
+
     public HomeController(AlumnoDao alumnoDao) {
         this.alumnoDao = alumnoDao;
     }
@@ -20,7 +22,11 @@ public class HomeController {
         return "students_list";
     }
 
-
+    /*@GetMapping("/")
+    public String home(Model model){
+        model.addAttribute("teachers", profesorDao.findAll());
+        return "teachers_list";
+    }*/
 
 
 
