@@ -57,7 +57,11 @@ public class AlumnoController {
     }
 
 
-
+    @PostMapping("/update")
+    public String updateAlumno(@ModelAttribute("alumno") Alumno alumno){
+        alumnoDao.save(alumno);
+        return "redirect:/alumno";
+    }
 
     @GetMapping("/update/{id_alumno}")
     public String updateFormAlumno(@PathVariable long id_alumno, Model model) {
@@ -69,6 +73,8 @@ public class AlumnoController {
             return "redirect:/alumno";
         }
     }
+
+
 
     /*@DeleteMapping("/delete/")
     public String deleteAlumno(@PathVariable Long id_alumno) {

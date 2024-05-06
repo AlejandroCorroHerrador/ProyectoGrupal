@@ -55,6 +55,12 @@ public class ProfesorController {
         return "create_teacher";
     }
 
+    @PostMapping("/update")
+    public String updateProfesor(@ModelAttribute("profesor") Profesor profesor){
+        profesorDao.save(profesor);
+        return "redirect:/profesor";
+    }
+
     @GetMapping("/update/{id_profesor}")
     public String updateFormProfesor(@PathVariable long id_profesor, Model model) {
         Optional<Profesor> profesor = profesorDao.findById(id_profesor);
@@ -73,7 +79,7 @@ public class ProfesorController {
        return "redirect:/profesor";
    }*/
 
-    @DeleteMapping("/delete/")
+    @DeleteMapping("/delete")
     public String deleteProfesor(@ModelAttribute Long id_profesor, Model model) {
         profesorDao.deleteProfesor(id_profesor);
         return "redirect:/profesor";
