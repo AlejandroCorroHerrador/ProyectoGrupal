@@ -60,6 +60,13 @@
                     <td th:text="${profesor.direccion}"></td>
                     <td th:text="${profesor.poblacion}"></td>
                     <td th:text="${profesor.cod_postal}"></td>
+                    <td>
+                        <a th:href="@{'/alumno/update/' + ${estudiante.idAlumno}}" class="btn btn-primary btn-update">Actualizar</a>
+                    </td>
+                    <td>
+                        <a th:href="@{'/alumno/delete/' + ${estudiante.idAlumno}}" class="btn btn-primary btn-delete">Eliminar</a>
+                    </td>
+                    </td>
                 </tr>
                 <tr>
                     <td>

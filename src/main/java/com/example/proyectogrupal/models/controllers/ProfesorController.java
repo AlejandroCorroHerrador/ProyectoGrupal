@@ -55,14 +55,29 @@ public class ProfesorController {
         return "create_teacher";
     }
 
-    @PutMapping("/{id_profesor}")
-    public Profesor updateProfesor(@PathVariable Long id_profesor, @RequestBody Profesor profesor){
-        return profesorDao.updateProfesor(profesor, id_profesor);
+    @GetMapping("/update/{id_profesor}")
+    public String updateFormProfesor(@PathVariable long id_profesor, Model model) {
+        Optional<Profesor> profesor = profesorDao.findById(id_profesor);
+        if (profesor.isPresent()) {
+            model.addAttribute("profesor", profesor.get());
+            return "update_teacher"; // Nombre de la página de actualización
+        } else {
+            return "redirect:/profesor";
+        }
     }
 
-    @DeleteMapping("/{id_profesor}")
-    public void deleteProfesor(@PathVariable Long id_profesor) {
+
+    /*@DeleteMapping("/delete/")
+   public String deleteProfesor(@PathVariable Long id_profesor) {
+       profesorDao.deleteProfesor(id_profesor);
+       return "redirect:/profesor";
+   }*/
+
+    @DeleteMapping("/delete/")
+    public String deleteProfesor(@ModelAttribute Long id_profesor, Model model) {
         profesorDao.deleteProfesor(id_profesor);
+        return "redirect:/profesor";
     }
+
 
 }

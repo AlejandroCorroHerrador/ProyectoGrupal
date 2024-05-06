@@ -56,10 +56,16 @@
     }
 </style>
 
-<form id="crearCursoForm" action="#" method="post" th:action="@{/profesor/save}" th:object="${profesor}">
-    <center>ACTUALIZAR MATRÍCULA DE PROFESOR</center>
+<form id="crearCursoForm" action="#" method="post" th:action="@{/profesor/update}" th:object="${profesor}">
+    <center>ACTUALIZAR FICHA DE PROFESOR</center>
 
     <br>
+
+    <br>
+
+    <label for="id_profesor"></label><br>
+    <input th:field="*{idProfesor}" type="text" id="id_profesor" name="id_profesor" required readonly><br>
+
     <br>
 
     <label for="nombre_profesor">Nombre del profesor: </label><br>

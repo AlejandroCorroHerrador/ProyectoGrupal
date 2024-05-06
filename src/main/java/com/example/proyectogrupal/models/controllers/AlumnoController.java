@@ -56,11 +56,8 @@ public class AlumnoController {
         return "redirect:/alumno";
     }
 
-    @PostMapping("/update")
-    public String updateAlumno(@ModelAttribute("alumno") Alumno alumno){
-        alumnoDao.save(alumno);
-        return "redirect:/alumno";
-    }
+
+
 
     @GetMapping("/update/{id_alumno}")
     public String updateFormAlumno(@PathVariable long id_alumno, Model model) {

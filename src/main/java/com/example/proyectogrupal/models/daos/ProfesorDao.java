@@ -1,5 +1,6 @@
 package com.example.proyectogrupal.models.daos;
 
+import com.example.proyectogrupal.models.entities.Alumno;
 import com.example.proyectogrupal.models.entities.Profesor;
 
 import java.util.List;
@@ -13,6 +14,8 @@ public interface ProfesorDao {
     Profesor createProfesor(Profesor profesor);
 
     Profesor updateProfesor(Profesor profesor, Long id_profesor);
+
+    Profesor save(Profesor profesor);
 
     void deleteProfesor(Long id_profesor);
 }
