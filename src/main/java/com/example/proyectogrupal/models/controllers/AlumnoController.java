@@ -72,16 +72,8 @@ public class AlumnoController {
         }
     }
 
-
-
-    /*@DeleteMapping("/delete/")
+    @GetMapping("/delete/{id_alumno}")
     public String deleteAlumno(@PathVariable Long id_alumno) {
-        alumnoDao.deleteAlumno(id_alumno);
-        return "redirect:/alumno";
-    }*/
-
-    @PostMapping("/delete")
-    public String deleteAlumno(@ModelAttribute Long id_alumno, Model model) {
         alumnoDao.deleteAlumno(id_alumno);
         return "redirect:/alumno";
     }

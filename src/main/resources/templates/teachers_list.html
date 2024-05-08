@@ -42,6 +42,7 @@
             <table class="table themed-container">
                 <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Email</th>
@@ -53,6 +54,7 @@
                 </thead>
                 <tbody>
                 <tr th:each="profesor: ${teachers}">
+                    <td th:text="${profesor.idProfesor}"></td>
                     <td th:text="${profesor.nombre_profesor}"></td>
                     <td th:text="${profesor.apellido_profesor}"></td>
                     <td th:text="${profesor.email}"></td>
