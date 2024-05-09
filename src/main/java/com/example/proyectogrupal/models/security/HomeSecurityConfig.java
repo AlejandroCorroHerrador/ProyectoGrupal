@@ -16,19 +16,19 @@ public class HomeSecurityConfig {
         UserDetails pau = User.builder()
                 .username("pau")
                 .password("{noop}12345")
-                .roles("STUDENT", "USER_ADMIN")
+                .roles("STUDENT")
                 .build();
 
         UserDetails borja = User.builder()
                 .username("borja")
                 .password("{noop}12345")
-                .roles("TEACHER", "USER_ADMIN")
+                .roles("TEACHER")
                 .build();
 
         UserDetails hector = User.builder()
                 .username("hector")
                 .password("{noop}12345")
-                .roles("TEACHER", "USER_ADMIN")
+                .roles("TEACHER")
                 .build();
 
         return new InMemoryUserDetailsManager(pau, borja, hector);
@@ -37,10 +37,8 @@ public class HomeSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(configurer ->
-                        configurer.requestMatchers("/alumno").hasRole("STUDENT")
-                                .requestMatchers("/").hasRole("TEACHER")
-                                .requestMatchers("/").hasRole("USER_ADMIN")
-                                .requestMatchers("/*?/create").hasRole("USER_ADMIN")
+                        configurer.requestMatchers("alumno").hasRole("STUDENT")
+                                .requestMatchers("/profesor").hasRole("TEACHER")
                                 .anyRequest().authenticated())
                 .formLogin(form ->
                         form

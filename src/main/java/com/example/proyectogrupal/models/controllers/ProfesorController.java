@@ -77,8 +77,4 @@ public class ProfesorController {
        profesorDao.deleteProfesor(id_profesor);
        return "redirect:/profesor";
    }
-
-
-
-
 }

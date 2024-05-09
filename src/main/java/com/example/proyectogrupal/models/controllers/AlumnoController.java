@@ -43,7 +43,6 @@ public class AlumnoController {
 
     @GetMapping("/create")
     public String createAlumno(Model model) {
-        //System.out.println("HOLA");
         model.addAttribute("alumno", new Alumno());
         return "create_student";
     }

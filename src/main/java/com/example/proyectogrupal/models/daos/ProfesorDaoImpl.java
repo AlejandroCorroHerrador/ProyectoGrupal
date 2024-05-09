@@ -49,13 +49,6 @@ public class ProfesorDaoImpl implements ProfesorDao {
         return profesor;
     }
 
-    /*@Override
-    public void deleteProfesor(long id_profesor) {
-        Optional<Profesor> profesor = profesorRepository.findById(id_profesor);
-        System.out.println(profesor);
-        profesorRepository.deleteById(id_profesor);
-    }*/
-
    @Override
    public void deleteProfesor(Long id_profesor) {
         Optional<Profesor> profesor = profesorRepository.findById(id_profesor);
