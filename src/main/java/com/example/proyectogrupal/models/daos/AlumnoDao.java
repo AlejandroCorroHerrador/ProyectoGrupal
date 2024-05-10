@@ -5,6 +5,7 @@ import com.example.proyectogrupal.models.entities.Alumno;
 import java.util.List;
 import java.util.Optional;
 
+//Servicio de la entidad "alumno" (alumnoDao). Instancia de las funciones del CRUD (creaar, leeer y guardar, actualizar y borrar).
 public interface AlumnoDao {
     List<Alumno> findAll();
 

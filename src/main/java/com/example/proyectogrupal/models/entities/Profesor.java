@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 
+//Entidad "profesor", con cada uno de sus campos
 @Entity
 @Table(name = "profesor")
 public class Profesor implements Serializable {

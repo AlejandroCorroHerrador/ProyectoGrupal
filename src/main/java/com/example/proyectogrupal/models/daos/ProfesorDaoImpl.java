@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+//Implementación del servicio "profesor" (profesorDao) con los correspondientes métodos
+
 @Service
 public class ProfesorDaoImpl implements ProfesorDao {
 
